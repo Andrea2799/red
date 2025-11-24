@@ -1,5 +1,0 @@
-venv/
-__pycache__/
-scaler.pkl
-model_clf.h5 model_reg.h5
-dataset.csv

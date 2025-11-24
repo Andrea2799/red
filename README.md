@@ -1,1 +1,0 @@
-# red-neuronal-estudiantes
