@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Rendimiento</title>
+    <style>
+        body { font-family: Arial; background: #f6f0ff; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 10px; width: 380px; margin:auto;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: 1px solid #ccc; }
+        button { width: 100%; padding: 10px; background: #8a00c8; color:white;
+                 border: none; border-radius: 5px; font-size: 16px; cursor:pointer; }
+        button:hover { background: #6d00a0; }
+        .resultado { background: #ffeefe; padding: 15px; border-radius: 8px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Predicción de Rendimiento</h2>
+    <p>Ingresa tus datos (valores válidos) y obtén la nota estimada.</p>
+
+    <form method="POST">
+        <label>Horas de estudio (1–12)</label>
+        <input type="number" step="0.1" name="horas_estudio" required>
+
+        <label>Horas de sueño (4–9)</label>
+        <input type="number" step="0.1" name="horas_suenio" required>
+
+        <label>Asistencia (%)</label>
+        <input type="number" step="1" name="asistencia" required>
+
+        <label>Nota anterior (1.0–5.0)</label>
+        <input type="number" step="0.1" name="nota_anterior" required>
+
+        <button type="submit">Predecir</button>
+    </form>
+
+    {% if nota %}
+    <div class="resultado">
+        <p><strong>Nota estimada (1.0–5.0):</strong> {{ nota }}</p>
+        <p><strong>Probabilidad de aprobar:</strong> {{ prob }}</p>
+        <p><strong>Estado:</strong> {{ estado }}</p>
+        <p>Umbral aprovado: 3.0</p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
